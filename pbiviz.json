@@ -1,0 +1,24 @@
+{
+  "visual": {
+    "name": "powerBIDataImage",
+    "displayName": "PowerBI DataImage",
+    "guid": "PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196",
+    "visualClassName": "Visual",
+    "version": "1.0.0",
+    "description": "",
+    "supportUrl": "",
+    "gitHubUrl": ""
+  },
+  "apiVersion": "1.3.0",
+  "author": {
+    "name": "",
+    "email": ""
+  },
+  "assets": {
+    "icon": "assets/icon.png"
+  },
+  "externalJS": [],
+  "style": "style/visual.less",
+  "capabilities": "capabilities.json",
+  "dependencies": "dependencies.json"
+}
