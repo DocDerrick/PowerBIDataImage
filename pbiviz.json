@@ -3,16 +3,16 @@
     "name": "powerBIDataImage",
     "displayName": "PowerBI DataImage",
     "guid": "PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196",
-    "visualClassName": "Visual",
+    "visualClassName": "DataImage",
     "version": "1.0.0",
-    "description": "",
-    "supportUrl": "",
-    "gitHubUrl": ""
+    "description": "An image control that is bound to data.",
+    "supportUrl": "https://github.com/chriswill/PowerBIDataImage",
+    "gitHubUrl": "https://github.com/chriswill/PowerBIDataImage"
   },
-  "apiVersion": "1.3.0",
+  "apiVersion": "1.7.0",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "CloudScope, LLC",
+    "email": "info@cloudscope.io"
   },
   "assets": {
     "icon": "assets/icon.png"

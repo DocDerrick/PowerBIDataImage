@@ -5,10 +5,10 @@
     "experimentalDecorators": true,
     "target": "ES5",
     "sourceMap": true,
-    "out": "./.tmp/build/visual.js"
+    "out": "./.tmp/build/data-image.js"
   },
   "files": [
-    ".api/v1.3.0/PowerBI-visuals.d.ts",
-    "src/visual.ts"
+    ".api/v1.7.0/PowerBI-visuals.d.ts",
+    "src/data-image.ts"
   ]
 }

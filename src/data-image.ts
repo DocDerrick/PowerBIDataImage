@@ -38,7 +38,7 @@ module powerbi.extensibility.visual {
             console.log('Visual update', options);
             debugger;
             this.imageUrl = options.dataViews[0].categorical.categories[0].values[0].toString();
-            this.target.innerHTML = `<img alt src="${this.imageUrl}" />`;
+            this.target.innerHTML = '<img alt src="' + this.imageUrl + '" />';
         }
     }
 }

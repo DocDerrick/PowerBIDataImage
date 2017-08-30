@@ -31,19 +31,20 @@ var powerbi;
         (function (visual) {
             var PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196;
             (function (PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196) {
-                var Visual = (function () {
-                    function Visual(options) {
+                var DataImage = (function () {
+                    function DataImage(options) {
                         console.log('Visual constructor', options);
                         this.target = options.element;
-                        this.updateCount = 0;
                     }
-                    Visual.prototype.update = function (options) {
+                    DataImage.prototype.update = function (options) {
                         console.log('Visual update', options);
-                        this.target.innerHTML = "<p>Update count: <em>" + (this.updateCount++) + "</em></p>";
+                        debugger;
+                        this.imageUrl = options.dataViews[0].categorical.categories[0].values[0].toString();
+                        this.target.innerHTML = '<img alt src="' + this.imageUrl + '" />';
                     };
-                    return Visual;
+                    return DataImage;
                 }());
-                PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196.Visual = Visual;
+                PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196.DataImage = DataImage;
             })(PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196 = visual.PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196 || (visual.PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196 = {}));
         })(visual = extensibility.visual || (extensibility.visual = {}));
     })(extensibility = powerbi.extensibility || (powerbi.extensibility = {}));
@@ -57,10 +58,10 @@ var powerbi;
             plugins.PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196_DEBUG = {
                 name: 'PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196_DEBUG',
                 displayName: 'PowerBI DataImage',
-                class: 'Visual',
+                class: 'DataImage',
                 version: '1.0.0',
-                apiVersion: '1.3.0',
-                create: function (options) { return new powerbi.extensibility.visual.PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196.Visual(options); },
+                apiVersion: '1.7.0',
+                create: function (options) { return new powerbi.extensibility.visual.PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196.DataImage(options); },
                 custom: true
             };
         })(plugins = visuals.plugins || (visuals.plugins = {}));

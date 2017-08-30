@@ -25,19 +25,20 @@
  */
 
 module powerbi.extensibility.visual.PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196  {
-    export class Visual implements IVisual {
-        private target: HTMLElement;
-        private updateCount: number;
+    export class DataImage implements IVisual {
+        private target: HTMLElement;        
+        private imageUrl: string;
 
         constructor(options: VisualConstructorOptions) {
             console.log('Visual constructor', options);
-            this.target = options.element;
-            this.updateCount = 0;
+            this.target = options.element;            
         }
 
         public update(options: VisualUpdateOptions) {
             console.log('Visual update', options);
-            this.target.innerHTML = `<p>Update count: <em>${(this.updateCount++)}</em></p>`;
+            debugger;
+            this.imageUrl = options.dataViews[0].categorical.categories[0].values[0].toString();
+            this.target.innerHTML = `<img alt src="${this.imageUrl}" />`;
         }
     }
 }

@@ -24,7 +24,7 @@
  *  THE SOFTWARE.
  */
 
-module powerbi.extensibility.visual {
+module powerbi.extensibility.visual.PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196  {
     export class DataImage implements IVisual {
         private target: HTMLElement;        
         private imageUrl: string;
@@ -38,7 +38,7 @@ module powerbi.extensibility.visual {
             console.log('Visual update', options);
             debugger;
             this.imageUrl = options.dataViews[0].categorical.categories[0].values[0].toString();
-            this.target.innerHTML = `<img alt src="${this.imageUrl}" />`;
+            this.target.innerHTML = '<img alt src="' + this.imageUrl + '" />';
         }
     }
 }
