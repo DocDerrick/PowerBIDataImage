@@ -30,15 +30,20 @@ module powerbi.extensibility.visual {
         private imageUrl: string;
 
         constructor(options: VisualConstructorOptions) {
-            console.log('Visual constructor', options);
+            console.log('DataImage constructor', options);
             this.target = options.element;            
         }
 
         public update(options: VisualUpdateOptions) {
-            console.log('Visual update', options);
-            debugger;
-            this.imageUrl = options.dataViews[0].categorical.categories[0].values[0].toString();
-            this.target.innerHTML = '<img alt src="' + this.imageUrl + '" />';
+            console.log('DataImage update', options);            
+            var image = options.dataViews[0].categorical.categories[0].values[0];
+            if (image != null) {            
+            	this.imageUrl = image.toString();
+            	console.log(this.imageUrl);
+            	this.target.innerHTML = '<img alt src="' + this.imageUrl + '" />';
+            } else {
+            	console.log('Image was null');
+            }
         }
     }
 }

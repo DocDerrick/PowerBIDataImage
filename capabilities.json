@@ -6,6 +6,17 @@
             "kind": "Grouping"
         }
     ],
+  "objects": {
+    "displayOptions": {
+      "displayName": "Display options",
+      "properties": {
+        "height": {
+          "displayName": "Height", 
+          "type":  {"integer":  true } 
+        } 
+      } 
+    }
+  },
     "dataViewMappings": [
         {
             "conditions": [
@@ -17,9 +28,7 @@
                         "in": "category"
                     },
                     "dataReductionAlgorithm": {
-                        "top": {
-                            "count": 1
-                        }
+                        "top": {}
                     }
                 }
             }
