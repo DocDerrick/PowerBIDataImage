@@ -1,1 +1,3 @@
 .tmp
+.vs
+node_modules
