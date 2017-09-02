@@ -1,5 +1,5 @@
 /*
- *  Power BI Visual CLI
+ *  Power BI Visualizations
  *
  *  Copyright (c) Microsoft Corporation
  *  All rights reserved.
@@ -25,25 +25,18 @@
  */
 
 module powerbi.extensibility.visual {
-    export class DataImage implements IVisual {
-        private target: HTMLElement;        
-        private imageUrl: string;
+    "use strict";
+    import DataViewObjectsParser = powerbi.extensibility.utils.dataview.DataViewObjectsParser;
 
-        constructor(options: VisualConstructorOptions) {
-            console.log('DataImage constructor', options);
-            this.target = options.element;            
-        }
+    export class VisualSettings extends DataViewObjectsParser {
+        public imageOptions: imageSettings = new imageSettings();
+      }
 
-        public update(options: VisualUpdateOptions) {
-            console.log('DataImage update', options);            
-            var image = options.dataViews[0].categorical.categories[0].values[0];
-            if (image != null) {            
-            	this.imageUrl = image.toString();
-            	console.log(this.imageUrl);
-            	this.target.innerHTML = '<img alt src="' + this.imageUrl + '" />';
-            } else {
-            	console.log('Image was null');
-            }
-        }
-    }
+    export class imageSettings {   
+        public circle: boolean = false;
+        public specifyHeight: boolean = false;
+        public specifyWidth: boolean = false;        
+        public height: number = 480;
+        public width: number = 640;        
+     }
 }

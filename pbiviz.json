@@ -3,7 +3,7 @@
     "name": "powerBIDataImage",
     "displayName": "PowerBI DataImage",
     "guid": "PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196",
-    "visualClassName": "DataImage",
+    "visualClassName": "DataImageVisual",
     "version": "1.0.0",
     "description": "An image control that is bound to data.",
     "supportUrl": "https://github.com/chriswill/PowerBIDataImage",
@@ -17,8 +17,11 @@
   "assets": {
     "icon": "assets/icon.png"
   },
-  "externalJS": [],
+  "externalJS": [
+    "node_modules/powerbi-visuals-utils-dataviewutils/lib/index.js"
+  ],
   "style": "style/visual.less",
   "capabilities": "capabilities.json",
-  "dependencies": "dependencies.json"
+  "dependencies": "dependencies.json",
+  "stringResources": []
 }
