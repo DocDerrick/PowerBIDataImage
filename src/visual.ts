@@ -39,33 +39,41 @@ module powerbi.extensibility.visual {
             this.settings = DataImageVisual.parseSettings(options && options.dataViews && options.dataViews[0]);
             console.log('Visual update', options);
 
+            debugger;
+
             while (this.target.firstChild) {
                 this.target.removeChild(this.target.firstChild);
             }
 
             let image = options.dataViews[0].categorical.categories[0].values[0];
             if (image != null) {
-                
-                let imageUrl = image.toString();
-                console.log(imageUrl);
 
+                let imageContainer = document.createElement("div");
+                imageContainer.setAttribute("class", "image-container");
+
+                let imageUrl = image.toString();
+                
                 let oImg = document.createElement("img");
-                oImg.setAttribute('src', imageUrl);
-                oImg.setAttribute('alt', '');                
+                oImg.setAttribute("src", imageUrl);
+                oImg.setAttribute("alt", "");                
                 document.body.appendChild(oImg);
 
                 let style = "";
                 
                 if (this.settings.imageOptions.circle) {
-                    style = style + "border-radius: 50%;";
+                    style = "border-radius: 50%; ";
                 }
                 
                 if (this.settings.imageOptions.borderWidth > 0) {
-                    style = style + "border-style: solid; border-width: " + this.settings.imageOptions.borderWidth + "px; border-color: " + this.settings.imageOptions.borderColor;
+                    let desiredWidth = (options.viewport.width - (this.settings.imageOptions.borderWidth * 2)).toFixed(0);
+                    style += `width: ${desiredWidth}px; border-style: solid; border-width: ${this.settings.imageOptions.borderWidth}px; border-color: ${this.settings.imageOptions.borderColor}`;
+                } else {
+                    style += `width: ${options.viewport.width.toFixed(0)}px; `;
                 }
 
-                oImg.setAttribute('style', style);
-                this.target.appendChild(oImg);
+                oImg.setAttribute("style", style);
+                imageContainer.appendChild(oImg);
+                this.target.appendChild(imageContainer);
             } else {
                 console.log('Image was null');
             }            
