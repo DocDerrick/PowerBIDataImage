@@ -54,18 +54,17 @@ module powerbi.extensibility.visual {
                 oImg.setAttribute('alt', '');                
                 document.body.appendChild(oImg);
 
-                if (this.settings.imageOptions.specifyHeight) {
-                    oImg.setAttribute('height', this.settings.imageOptions.height.toString());
-                }
-
-                if (this.settings.imageOptions.specifyWidth) {
-                    oImg.setAttribute('width', this.settings.imageOptions.width.toString());
-                }
-
+                let style = "";
+                
                 if (this.settings.imageOptions.circle) {
-                    oImg.setAttribute('style', 'border-radius: 50%;');
+                    style = style + "border-radius: 50%;";
                 }
                 
+                if (this.settings.imageOptions.borderWidth > 0) {
+                    style = style + "border-style: solid; border-width: " + this.settings.imageOptions.borderWidth + "px; border-color: " + this.settings.imageOptions.borderColor;
+                }
+
+                oImg.setAttribute('style', style);
                 this.target.appendChild(oImg);
             } else {
                 console.log('Image was null');
@@ -85,23 +84,15 @@ module powerbi.extensibility.visual {
                     objectEnumeration.push({
                         objectName: objectName,
                         properties: {                            
-                            specifyWidth: this.settings.imageOptions.specifyWidth,
-                            width: this.settings.imageOptions.width,
-                            specifyHeight: this.settings.imageOptions.specifyHeight,
-                            height: this.settings.imageOptions.height,
+                            borderColor: this.settings.imageOptions.borderColor,
+                            borderWidth: this.settings.imageOptions.borderWidth,
                             circle: this.settings.imageOptions.circle
                         },
-                        validValues: {
-                            height: {
+                        validValues: {                            
+                            borderWidth: {
                                 numberRange: {
-                                    min: 10,
-                                    max: 1080
-                                }
-                            },
-                            width: {
-                                numberRange: {
-                                    min: 10,
-                                    max: 1920
+                                    min: 0,
+                                    max: 20
                                 }
                             }
                         },

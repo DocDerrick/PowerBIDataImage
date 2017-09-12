@@ -1,7 +1,7 @@
 {
     "dataRoles": [
         {
-            "displayName": "Image url field",
+            "displayName": "Image url",
             "name": "category",
             "kind": "Grouping"
         }
@@ -10,25 +10,23 @@
         "imageOptions": {
             "displayName": "Image options",
           "properties": {
-            "specifyWidth": {
-              "displayName": "Specify width",
-              "type": { "bool": true }
-            },
-            "width": {
-              "displayName": "Width",
-              "type": { "integer": true }
-            },
-            "specifyHeight": {
-              "displayName": "Specify height",
-              "type": { "bool": true }
-            },
-            "height": {
-              "displayName": "Height",
-              "type": { "integer": true }
-            },
             "circle": {
               "displayName": "Circle",
               "type": { "bool": true }
+            },
+            "borderColor": {
+              "displayName": "Border color",
+              "type": {
+                 "fill": {
+                   "solid": {
+                     "color" : true
+                   }
+                 }
+              }
+            },
+            "borderWidth": {
+              "displayName": "Border width",
+              "type": { "integer": true }
             }
           }
         }

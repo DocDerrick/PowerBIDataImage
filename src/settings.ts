@@ -33,10 +33,8 @@ module powerbi.extensibility.visual {
       }
 
     export class imageSettings {   
-        public circle: boolean = false;
-        public specifyHeight: boolean = false;
-        public specifyWidth: boolean = false;        
-        public height: number = 480;
-        public width: number = 640;        
+        public circle: boolean = false;  
+        public borderColor: string = "#fff";
+        public borderWidth: number = 5;        
      }
 }
