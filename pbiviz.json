@@ -1,10 +1,10 @@
 {
   "visual": {
-    "name": "powerBIDataImage",
-    "displayName": "Data Image",
+    "name": "pbiImage",
+    "displayName": "Image",
     "guid": "PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196",
-    "visualClassName": "DataImageVisual",
-    "version": "1.0.1",
+    "visualClassName": "ImageVisual",
+    "version": "1.0.3",
     "description": "A data-bound image control.",
     "supportUrl": "https://www.cloudscope.io/support/data-image",
     "gitHubUrl": "https://github.com/chriswill/PowerBIDataImage"

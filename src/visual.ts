@@ -1,6 +1,6 @@
 module powerbi.extensibility.visual {
     "use strict";
-    export class DataImageVisual implements IVisual {
+    export class ImageVisual implements IVisual {
         private target: HTMLElement;        
         private settings: VisualSettings;
 
@@ -9,7 +9,7 @@ module powerbi.extensibility.visual {
         }
 
         public update(options: VisualUpdateOptions) {
-            this.settings = DataImageVisual.parseSettings(options && options.dataViews && options.dataViews[0]);
+            this.settings = ImageVisual.parseSettings(options && options.dataViews && options.dataViews[0]);
             
             while (this.target.firstChild) {
                 this.target.removeChild(this.target.firstChild);
@@ -19,29 +19,27 @@ module powerbi.extensibility.visual {
             if (image != null) {
 
                 let imageContainer = document.createElement("div");
-                imageContainer.setAttribute("class", "image-container");
-
+                imageContainer.classList.add("image-container")
+                
                 let imageUrl = image.toString();
                 
                 let oImg = document.createElement("img");
-                oImg.setAttribute("src", imageUrl);
-                oImg.setAttribute("alt", "");                
+                oImg.setAttribute("alt", "");
+                oImg.setAttribute("src", encodeURI(imageUrl));
                 document.body.appendChild(oImg);
-
-                let style = "";
-                
+                               
                 if (this.settings.imageOptions.circle) {
-                    style = "border-radius: 50%; ";
+                    oImg.classList.add("circle")                    
                 }
                 
                 if (this.settings.imageOptions.borderWidth > 0) {
-                    let desiredWidth = (options.viewport.width - (this.settings.imageOptions.borderWidth * 2)).toFixed(0);
-                    style += `width: ${desiredWidth}px; border-style: solid; border-width: ${this.settings.imageOptions.borderWidth}px; border-color: ${this.settings.imageOptions.borderColor}`;
+                    let desiredWidth = (options.viewport.width - (this.settings.imageOptions.borderWidth * 2)).toFixed(0);{
+                        oImg.setAttribute("style", `width: ${desiredWidth}px; border-style: solid; border-width: ${this.settings.imageOptions.borderWidth}px; border-color: ${this.settings.imageOptions.borderColor}`);
+                    }                    
                 } else {
-                    style += `width: ${options.viewport.width.toFixed(0)}px; `;
+                    oImg.setAttribute("style", `width: ${options.viewport.width.toFixed(0)}px;`);                    
                 }
 
-                oImg.setAttribute("style", style);
                 imageContainer.appendChild(oImg);
                 this.target.appendChild(imageContainer);
             } else {
