@@ -25,7 +25,7 @@ module powerbi.extensibility.visual {
                 
                 let oImg = document.createElement("img");
                 oImg.setAttribute("alt", "");
-                oImg.setAttribute("src", encodeURI(imageUrl));
+                oImg.setAttribute("src", imageUrl);
                 document.body.appendChild(oImg);
                                
                 if (this.settings.imageOptions.circle) {

@@ -4,7 +4,7 @@
     "displayName": "Image",
     "guid": "PBI_CV_885EF3C3_31C1_4745_B2B9_20771D5AD196",
     "visualClassName": "ImageVisual",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "A data-bound image control.",
     "supportUrl": "https://www.cloudscope.io/support/data-image",
     "gitHubUrl": "https://github.com/chriswill/PowerBIDataImage"
@@ -23,5 +23,5 @@
   "style": "style/visual.less",
   "capabilities": "capabilities.json",
   "dependencies": "dependencies.json",
-  "stringResources": []
+  "stringResources": ["stringResources/en-US.json"]
 }

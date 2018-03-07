@@ -2,6 +2,7 @@
     "dataRoles": [
         {
             "displayName": "Image url",
+            "displayNameKey": "settingsImageUrl",
             "name": "category",
             "kind": "Grouping"
         }
@@ -9,13 +10,16 @@
     "objects": {
         "imageOptions": {
             "displayName": "Image options",
+            "displayNameKey": "settingsImageOptions",
           "properties": {
             "circle": {
               "displayName": "Circle",
+              "displayNameKey": "settingsCircle",
               "type": { "bool": true }
             },
             "borderColor": {
               "displayName": "Border color",
+              "displayNameKey": "settingsBorderColor",
               "type": {
                  "fill": {
                    "solid": {
@@ -26,6 +30,7 @@
             },
             "borderWidth": {
               "displayName": "Border width",
+              "displayNameKey": "settingsBorderWidth",
               "type": { "integer": true }
             }
           }
